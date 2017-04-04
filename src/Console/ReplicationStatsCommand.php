@@ -6,7 +6,6 @@ use Phlib\DbHelper\Replication;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
 
 /**
  * @package Phlib\Db
@@ -20,6 +19,11 @@ class ReplicationStatsCommand extends Command
             ->setDescription('CLI for interacting with the Beanstalk server.');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $config      = $this->getHelper('configuration')->fetch();

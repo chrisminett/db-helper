@@ -99,7 +99,9 @@ class Replication
             throw new InvalidArgumentException("Specified storage class '$storageClass' could not be found.");
         }
         if (!method_exists($storageClass, 'createFromConfig')) {
-            throw new InvalidArgumentException("Storage class '$storageClass' is missing required method 'createFromConfig'.");
+            throw new InvalidArgumentException(
+                "Storage class '$storageClass' is missing required method 'createFromConfig'."
+            );
         }
         $storage = call_user_func_array([$storageClass, 'createFromConfig'], $config['storage']['args']);
         return new static($master, $slaves, $storage);
@@ -197,8 +199,7 @@ class Replication
     {
         $status = $slave->query('SHOW SLAVE STATUS')
             ->fetch(\PDO::FETCH_ASSOC);
-        if (
-            !is_array($status) ||
+        if (!is_array($status) ||
             !array_key_exists('Seconds_Behind_Master', $status) ||
             is_null($status['Seconds_Behind_Master'])
         ) {

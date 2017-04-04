@@ -1,6 +1,6 @@
 <?php
 
-namespace Phlib\Db\Tests;
+namespace Phlib\DbHelper\Tests;
 
 use Phlib\DbHelper\Replication;
 use Phlib\DbHelper\Replication\StorageInterface;
@@ -71,6 +71,9 @@ class ReplicationTest extends \PHPUnit_Framework_TestCase
         Replication::createFromConfig($config);
     }
 
+    /**
+     * @return array
+     */
     public function getDefaultConfig()
     {
         return [

@@ -15,7 +15,8 @@ interface StorageInterface
     public static function createFromConfig(array $config);
 
     /**
-     * @return integer
+     * @param string $host
+     * @return int
      */
     public function getSecondsBehind($host);
 
@@ -27,7 +28,8 @@ interface StorageInterface
     public function setSecondsBehind($host, $value);
 
     /**
-     * @return integer[]
+     * @param string $host
+     * @return \integer[]
      */
     public function getHistory($host);
 
