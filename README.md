@@ -125,7 +125,7 @@ $config = [
         ]
     ],
     'storage' => [
-        'class' => \Phlib\DbHelper\Tests\Replication\StorageMock::class,
+        'class' => \Phlib\DbHelper\Replication\Memcache::class,
         'args'  => [[]]
     ],
 ];
