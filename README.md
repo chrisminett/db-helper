@@ -84,6 +84,55 @@ $queryRowLimit = 20000000;
 $pdoStmt = $bigResult->query($sqlSelect, $bind, $queryRowLimit);
 ```
 
+### Replication
+
+The Replication helper monitors slave lag, which it stores in Memcache. This
+known lag can then be used to throttle long-running processes by introducing
+variable amounts of sleep.
+
+Set up slave monitoring using the CLI script (you might consider using Monit to
+run this automatically):
+
+```sh
+./vendor/bin/db replication:monitor -c path/to/config.php -p /var/run/db-replication.pid -d start
+```
+
+```php
+$config = require 'path/to/config.php';
+$replication = Replication::createFromConfig($config);
+
+while ([...]) {
+    [... some repetitive iteration, like writing thousands of records ...]
+    
+    $replication->throttle();
+}
+```
+
+Your config file might look something like this:
+
+```php
+<?php
+$config = [
+    // master
+    'host'     => '10.0.0.1',
+    'username' => 'foo',
+    'password' => 'bar',
+    'slaves'   => [
+        [
+            'host'     => '10.0.0.2',
+            'username' => 'foo',
+            'password' => 'bar'
+        ]
+    ],
+    'storage' => [
+        'class' => \Phlib\DbHelper\Tests\Replication\StorageMock::class,
+        'args'  => [[]]
+    ],
+];
+
+return $config;
+```
+
 ## License
 
 This package is free software: you can redistribute it and/or modify
