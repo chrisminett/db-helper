@@ -7,6 +7,10 @@ use Phlib\DbHelper\Replication\StorageInterface;
 use Phlib\Db\Adapter\AdapterInterface;
 use phpmock\phpunit\PHPMock;
 
+/**
+ * @package Phlib\Db
+ * @licence LGPL-3.0
+ */
 class ReplicationTest extends \PHPUnit_Framework_TestCase
 {
     use PHPMock;

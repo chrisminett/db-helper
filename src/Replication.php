@@ -8,8 +8,8 @@ use Phlib\Db\Adapter;
 use Phlib\Db\Adapter\AdapterInterface;
 
 /**
- * Class Replication
  * @package Phlib\Db
+ * @licence LGPL-3.0
  */
 class Replication
 {

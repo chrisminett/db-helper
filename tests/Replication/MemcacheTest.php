@@ -5,6 +5,10 @@ namespace Phlib\DbHelper\Tests\Replication;
 use Phlib\DbHelper\Replication\Memcache;
 use Phlib\DbHelper\Replication\StorageInterface;
 
+/**
+ * @package Phlib\Db
+ * @licence LGPL-3.0
+ */
 class MemcacheTest extends \PHPUnit_Framework_TestCase
 {
     /**

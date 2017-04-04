@@ -8,6 +8,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Output\StreamOutput;
 
+/**
+ * @package Phlib\Db
+ * @licence LGPL-3.0
+ */
 class ReplicationMonitorCommand extends DaemonCommand
 {
     /**
