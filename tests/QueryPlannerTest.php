@@ -47,13 +47,16 @@ class QueryPlannerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetNumberOfRowsInspected()
     {
-        $row1 = 1; $row2 = 2; $row3 = 3;
+        $row1 = 1;
+        $row2 = 2;
+        $row3 = 3;
         $plan = [
             ['rows' => $row1],
             ['rows' => $row2],
             ['rows' => $row3]
         ];
 
+        /** @var QueryPlanner|\PHPUnit_Framework_MockObject_MockObject $planner */
         $planner = $this->getMockBuilder(QueryPlanner::class)
             ->setConstructorArgs([$this->adapter, 'SELECT'])
             ->setMethods(['getPlan'])
@@ -68,12 +71,14 @@ class QueryPlannerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetNumberOfRowsInspectedDoesNotExceedMaxInt()
     {
-        $row1 = PHP_INT_MAX; $row2 = 2;
+        $row1 = PHP_INT_MAX;
+        $row2 = 2;
         $plan = [
             ['rows' => $row1],
             ['rows' => $row2]
         ];
 
+        /** @var QueryPlanner|\PHPUnit_Framework_MockObject_MockObject $planner */
         $planner = $this->getMockBuilder(QueryPlanner::class)
             ->setConstructorArgs([$this->adapter, 'SELECT'])
             ->setMethods(['getPlan'])
