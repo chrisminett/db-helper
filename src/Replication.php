@@ -5,7 +5,7 @@ namespace Phlib\DbHelper;
 use Phlib\DbHelper\Exception\RuntimeException;
 use Phlib\DbHelper\Exception\InvalidArgumentException;
 use Phlib\Db\Adapter;
-use Phlib\Db\Adapter\AdapterInterface;
+use Phlib\Db\AdapterInterface;
 
 /**
  * @package Phlib\Db

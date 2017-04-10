@@ -4,7 +4,7 @@ namespace Phlib\DbHelper\Tests;
 
 use Phlib\DbHelper\Replication;
 use Phlib\DbHelper\Replication\StorageInterface;
-use Phlib\Db\Adapter\AdapterInterface;
+use Phlib\Db\AdapterInterface;
 use phpmock\phpunit\PHPMock;
 
 /**
