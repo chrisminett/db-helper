@@ -6,4 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Add helpers from `phlib/db`: `BulkInsert`, `BigResult`, `QueryPlanner` 
+- Add Replication helper
+
+### Added
+- Add helpers from `phlib/db`: `BulkInsert`, `BigResult`, `QueryPlanner`
